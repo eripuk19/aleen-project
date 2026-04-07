@@ -499,6 +499,41 @@ export interface ApiAboutPageAboutPage extends Struct.SingleTypeSchema {
   };
 }
 
+export interface ApiCollectionCollection extends Struct.CollectionTypeSchema {
+  collectionName: 'collections';
+  info: {
+    displayName: 'Collection';
+    pluralName: 'collections';
+    singularName: 'collection';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    coverImage: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios'
+    >;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.RichText;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::collection.collection'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    seoDescription: Schema.Attribute.String;
+    seoTitle: Schema.Attribute.String;
+    slug: Schema.Attribute.UID<'title'>;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
 export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
   collectionName: 'contact_pages';
   info: {
@@ -526,6 +561,43 @@ export interface ApiContactPageContactPage extends Struct.SingleTypeSchema {
     publishedAt: Schema.Attribute.DateTime;
     seoDescription: Schema.Attribute.Text;
     seoTitle: Schema.Attribute.String;
+    title: Schema.Attribute.String;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiDressDress extends Struct.CollectionTypeSchema {
+  collectionName: 'dresses';
+  info: {
+    displayName: 'Dress';
+    pluralName: 'dresses';
+    singularName: 'dress';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    altText: Schema.Attribute.String;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    featured: Schema.Attribute.Boolean;
+    fullDescription: Schema.Attribute.RichText;
+    images: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<'oneToMany', 'api::dress.dress'> &
+      Schema.Attribute.Private;
+    priceLabel: Schema.Attribute.String;
+    publishedAt: Schema.Attribute.DateTime;
+    seoDescription: Schema.Attribute.String;
+    seoTitle: Schema.Attribute.String;
+    shortDescription: Schema.Attribute.String;
+    slug: Schema.Attribute.UID<'title'>;
     title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
@@ -1079,7 +1151,9 @@ declare module '@strapi/strapi' {
       'admin::transfer-token-permission': AdminTransferTokenPermission;
       'admin::user': AdminUser;
       'api::about-page.about-page': ApiAboutPageAboutPage;
+      'api::collection.collection': ApiCollectionCollection;
       'api::contact-page.contact-page': ApiContactPageContactPage;
+      'api::dress.dress': ApiDressDress;
       'api::homepage.homepage': ApiHomepageHomepage;
       'plugin::content-releases.release': PluginContentReleasesRelease;
       'plugin::content-releases.release-action': PluginContentReleasesReleaseAction;
