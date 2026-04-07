@@ -48,6 +48,12 @@
     },
     "altText": {
       "type": "string"
+    },
+    "collection": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::collection.collection",
+      "inversedBy": "dresses"
     }
   }
 }

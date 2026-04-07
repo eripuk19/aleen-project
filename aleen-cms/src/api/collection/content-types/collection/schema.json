@@ -36,6 +36,12 @@
     },
     "seoDescription": {
       "type": "string"
+    },
+    "dresses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::dress.dress",
+      "mappedBy": "collection"
     }
   }
 }
