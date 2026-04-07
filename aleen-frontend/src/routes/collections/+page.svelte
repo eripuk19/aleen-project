@@ -1,4 +1,5 @@
 <script>
+  import { goto } from '$app/navigation';
   let { data } = $props();
 </script>
 
@@ -22,30 +23,29 @@
   {:else}
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
       {#each data.collections as collection}
-        <article class="border rounded-xl overflow-hidden shadow-sm">
-          {#if collection.coverImage}
-            <img
-              src={`http://localhost:1337${collection.coverImage.url}`}
-              alt={collection.title}
-              class="w-full h-64 object-cover"
-            />
-          {/if}
+  <a
+    href={`/collections/${collection.slug}`}
+    class="block border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition"
+  >
+    {#if collection.coverImage}
+      <img
+        src={`http://localhost:1337${collection.coverImage.url}`}
+        alt={collection.title}
+        class="w-full h-64 object-cover"
+      />
+    {/if}
 
-          <div class="p-6">
-            <h2 class="text-2xl font-semibold mb-3">
-              {collection.title}
-            </h2>
+    <div class="p-6">
+      <h2 class="text-2xl font-semibold mb-3">
+        {collection.title}
+      </h2>
 
-            <p class="text-sm leading-6 mb-4">
-              {collection.description?.[0]?.children?.[0]?.text ?? 'No description available.'}
-            </p>
-
-            <p class="text-sm font-medium text-gray-600">
-              Slug: {collection.slug}
-            </p>
-          </div>
-        </article>
-      {/each}
+      <p class="text-sm leading-6 mb-4">
+        {collection.description?.[0]?.children?.[0]?.text ?? 'No description available.'}
+      </p>
+    </div>
+  </a>
+{/each}
     </div>
   {/if}
 </section>
