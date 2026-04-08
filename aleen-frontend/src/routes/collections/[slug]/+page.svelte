@@ -25,14 +25,19 @@
     <div class="lux-container">
       {#if collection.coverImage}
         <img
-          src={`http://localhost:1337${collection.coverImage.url}`}
+          src={`http://localhost:1337${collection.coverImage.formats?.large?.url || collection.coverImage.url}`}
           alt={collection.title}
           class="w-full rounded-[2rem] mb-10 shadow-[0_20px_50px_rgba(31,26,23,0.08)]"
         />
       {/if}
 
       <div class="max-w-3xl mb-14">
-        <p class="lux-script text-5xl text-[var(--gold)] mb-2">Collection</p>
+        <p
+          class="text-3xl md:text-4xl font-semibold tracking-[0.08em] text-[#6f4e37] mb-2"
+          style="font-family: 'Cormorant Garamond', serif;"
+        >
+          Aleen Sabbagh
+        </p>
         <h1 class="text-5xl md:text-6xl font-semibold mb-4">
           {collection.title}
         </h1>
@@ -47,7 +52,12 @@
   <section class="lux-section pt-0">
     <div class="lux-container">
       <div class="mb-10">
-        <p class="lux-script text-4xl text-[var(--gold)] mb-2">Signature Pieces</p>
+        <p
+          class="text-3xl md:text-4xl font-semibold tracking-[0.08em] text-[#6f4e37] mb-2"
+          style="font-family: 'Cormorant Garamond', serif;"
+        >
+          Aleen Sabbagh
+        </p>
         <h2 class="text-4xl md:text-5xl font-semibold">Dresses in this Collection</h2>
       </div>
 
@@ -59,9 +69,9 @@
             <a href={`/dresses/${dress.slug}`} class="lux-card group">
               {#if dress.images?.[0]}
                 <img
-                  src={`http://localhost:1337${dress.images[0].url}`}
+                  src={`http://localhost:1337${dress.images[0].formats?.large?.url || dress.images[0].url}`}
                   alt={dress.altText || dress.title}
-                  class="w-full h-[28rem] object-cover transition duration-300 group-hover:scale-[1.02]"
+                  class="w-full h-[30rem] object-cover transition duration-300 group-hover:scale-[1.02]"
                 />
               {/if}
 

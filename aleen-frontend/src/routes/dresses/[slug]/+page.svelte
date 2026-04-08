@@ -24,7 +24,7 @@
       <div>
         {#if dress.images?.[0]}
           <img
-            src={`http://localhost:1337${dress.images[0].url}`}
+            src={`http://localhost:1337${dress.images[0].formats?.large?.url || dress.images[0].url}`}
             alt={dress.altText || dress.title}
             class="w-full rounded-[2rem] shadow-[0_20px_50px_rgba(31,26,23,0.08)]"
           />
@@ -32,7 +32,12 @@
       </div>
 
       <div class="pt-4">
-        <p class="lux-script text-5xl text-[var(--gold)] mb-2">Couture Piece</p>
+        <p
+          class="text-3xl md:text-4xl font-semibold tracking-[0.08em] text-[#6f4e37] mb-2"
+          style="font-family: 'Cormorant Garamond', serif;"
+        >
+          Aleen Sabbagh
+        </p>
 
         <h1 class="text-5xl md:text-6xl font-semibold mb-4">
           {dress.title}

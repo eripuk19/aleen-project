@@ -32,7 +32,12 @@
       </div>
 
       <div>
-        <p class="lux-script text-5xl text-[var(--gold)] mb-2">Our Story</p>
+        <p
+          class="text-3xl md:text-4xl font-semibold tracking-[0.08em] text-[#6f4e37] mb-2"
+          style="font-family: 'Cormorant Garamond', serif;"
+        >
+          Aleen Sabbagh
+        </p>
         <h1 class="text-5xl md:text-6xl font-semibold mb-4">
           {about.title}
         </h1>

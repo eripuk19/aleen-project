@@ -23,7 +23,12 @@
   <section class="lux-section">
     <div class="lux-container grid lg:grid-cols-2 gap-12 items-center">
       <div>
-        <p class="lux-script text-5xl text-[var(--gold)] mb-3">Haute Elegance</p>
+        <p
+          class="text-3xl md:text-4xl font-semibold tracking-[0.08em] text-[#6f4e37] mb-3"
+          style="font-family: 'Cormorant Garamond', serif;"
+        >
+          Aleen Sabbagh
+        </p>
         <p class="lux-eyebrow mb-5">Luxury Fashion House</p>
 
         <h1 class="text-6xl md:text-7xl leading-[0.95] font-semibold mb-6">
@@ -47,7 +52,7 @@
       <div class="relative">
         {#if homepage.heroImage}
           <img
-            src={`http://localhost:1337${homepage.heroImage.url}`}
+            src={`http://localhost:1337${homepage.heroImage.formats?.large?.url || homepage.heroImage.url}`}
             alt={homepage.heroImage.alternativeText || homepage.heroTitle}
             class="w-full rounded-[2rem] shadow-[0_20px_50px_rgba(31,26,23,0.10)]"
           />
@@ -59,7 +64,12 @@
   <section class="lux-section pt-0">
     <div class="lux-container">
       <div class="max-w-3xl">
-        <p class="lux-script text-4xl text-[var(--gold)] mb-2">The Brand</p>
+        <p
+          class="text-3xl md:text-4xl font-semibold tracking-[0.08em] text-[#6f4e37] mb-2"
+          style="font-family: 'Cormorant Garamond', serif;"
+        >
+          Aleen Sabbagh
+        </p>
         <h2 class="text-5xl font-semibold mb-4">Refined femininity, timeless luxury</h2>
         <div class="lux-divider mb-6"></div>
         <p class="text-lg leading-9 lux-muted">
@@ -73,7 +83,12 @@
     <div class="lux-container">
       <div class="flex items-end justify-between gap-6 mb-10">
         <div>
-          <p class="lux-script text-4xl text-[var(--gold)] mb-2">Curated</p>
+          <p
+            class="text-3xl md:text-4xl font-semibold tracking-[0.08em] text-[#6f4e37] mb-2"
+            style="font-family: 'Cormorant Garamond', serif;"
+          >
+            Aleen Sabbagh
+          </p>
           <h2 class="text-5xl font-semibold">Featured Collections</h2>
         </div>
         <a href="/collections" class="lux-muted underline">View all</a>
@@ -87,9 +102,9 @@
           >
             {#if collection.coverImage}
               <img
-                src={`http://localhost:1337${collection.coverImage.url}`}
+                src={`http://localhost:1337${collection.coverImage.formats?.large?.url || collection.coverImage.url}`}
                 alt={collection.title}
-                class="w-full h-80 object-cover transition duration-300 group-hover:scale-[1.02]"
+                class="w-full h-[26rem] object-cover transition duration-300 group-hover:scale-[1.02]"
               />
             {/if}
 
@@ -108,7 +123,12 @@
   <section class="lux-section">
     <div class="lux-container">
       <div class="mb-10">
-        <p class="lux-script text-4xl text-[var(--gold)] mb-2">Signature Pieces</p>
+        <p
+          class="text-3xl md:text-4xl font-semibold tracking-[0.08em] text-[#6f4e37] mb-2"
+          style="font-family: 'Cormorant Garamond', serif;"
+        >
+          Aleen Sabbagh
+        </p>
         <h2 class="text-5xl font-semibold">Featured Dresses</h2>
       </div>
 
@@ -123,9 +143,9 @@
             >
               {#if dress.images?.[0]}
                 <img
-                  src={`http://localhost:1337${dress.images[0].url}`}
+                  src={`http://localhost:1337${dress.images[0].formats?.large?.url || dress.images[0].url}`}
                   alt={dress.altText || dress.title}
-                  class="w-full h-96 object-cover transition duration-300 group-hover:scale-[1.02]"
+                  class="w-full h-[30rem] object-cover transition duration-300 group-hover:scale-[1.02]"
                 />
               {/if}
 
@@ -148,7 +168,12 @@
   <section class="lux-section">
     <div class="lux-container">
       <div class="rounded-[2rem] px-8 py-16 md:px-16 text-center bg-[linear-gradient(135deg,#fffaf5_0%,#efe7dc_100%)] border border-[rgba(31,26,23,0.06)]">
-        <p class="lux-script text-5xl text-[var(--gold)] mb-3">By Appointment</p>
+        <p
+          class="text-3xl md:text-4xl font-semibold tracking-[0.08em] text-[#6f4e37] mb-3"
+          style="font-family: 'Cormorant Garamond', serif;"
+        >
+          Aleen Sabbagh
+        </p>
         <h2 class="text-5xl font-semibold mb-4">Discover timeless couture-inspired elegance</h2>
         <p class="text-lg lux-muted max-w-2xl mx-auto mb-8 leading-8">
           Explore the world of Aleen Sabbagh and inquire about luxury dresses designed with detail, softness, and modern sophistication.

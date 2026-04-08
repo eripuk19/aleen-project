@@ -13,7 +13,12 @@
 <section class="lux-section">
   <div class="lux-container">
     <div class="text-center mb-14">
-      <p class="lux-script text-5xl text-[var(--gold)] mb-3">Collections</p>
+      <p
+        class="text-3xl md:text-4xl font-semibold tracking-[0.08em] text-[#6f4e37] mb-3"
+        style="font-family: 'Cormorant Garamond', serif;"
+      >
+        Aleen Sabbagh
+      </p>
       <h1 class="text-5xl md:text-6xl font-semibold mb-4">The World of Aleen Sabbagh</h1>
       <p class="lux-muted text-lg max-w-2xl mx-auto leading-8">
         Discover curated collections shaped by elegance, femininity, and couture-inspired refinement.
@@ -33,9 +38,9 @@
           >
             {#if collection.coverImage}
               <img
-                src={`http://localhost:1337${collection.coverImage.url}`}
+                src={`http://localhost:1337${collection.coverImage.formats?.large?.url || collection.coverImage.url}`}
                 alt={collection.title}
-                class="w-full h-80 object-cover transition duration-300 group-hover:scale-[1.02]"
+                class="w-full h-[26rem] object-cover transition duration-300 group-hover:scale-[1.02]"
               />
             {/if}
 
