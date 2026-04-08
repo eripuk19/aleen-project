@@ -1,19 +1,21 @@
 <script>
+  import '../app.css';
   let { children } = $props();
 </script>
 
 <div class="min-h-screen flex flex-col">
-  <header class="border-b">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-      <a href="/" class="text-2xl font-bold">
-        Aleen Sabbagh
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-[rgba(248,243,236,0.82)] border-b border-[rgba(31,26,23,0.06)]">
+    <div class="lux-container px-6 py-4 flex items-center justify-between">
+      <a href="/" class="flex flex-col leading-none">
+        <span class="lux-script text-3xl text-[var(--gold)]">Aleen Sabbagh</span>
+        <span class="text-xs tracking-[0.35em] uppercase mt-1 text-[var(--muted)]">Luxury Dresses</span>
       </a>
 
-      <nav class="flex gap-6 text-sm md:text-base">
-        <a href="/" class="hover:underline">Home</a>
-        <a href="/collections" class="hover:underline">Collections</a>
-        <a href="/about" class="hover:underline">About</a>
-        <a href="/contact" class="hover:underline">Contact</a>
+      <nav class="flex gap-6 text-sm md:text-base text-[var(--text)]">
+        <a href="/" class="hover:text-[var(--gold)] transition">Home</a>
+        <a href="/collections" class="hover:text-[var(--gold)] transition">Collections</a>
+        <a href="/about" class="hover:text-[var(--gold)] transition">About</a>
+        <a href="/contact" class="hover:text-[var(--gold)] transition">Contact</a>
       </nav>
     </div>
   </header>
@@ -22,9 +24,11 @@
     {@render children()}
   </main>
 
-  <footer class="border-t mt-16">
-    <div class="max-w-6xl mx-auto px-6 py-6 text-sm text-center">
-      © 2026 Aleen Sabbagh. All rights reserved.
+  <footer class="mt-16 border-t border-[rgba(31,26,23,0.06)] bg-[rgba(255,255,255,0.35)]">
+    <div class="lux-container px-6 py-10 text-center">
+      <p class="lux-script text-3xl text-[var(--gold)] mb-2">Aleen Sabbagh</p>
+      <p class="text-sm lux-muted">Luxury fashion dresses with timeless elegance and modern femininity.</p>
+      <p class="text-xs tracking-[0.2em] uppercase mt-4 lux-muted">© 2026 All rights reserved</p>
     </div>
   </footer>
 </div>

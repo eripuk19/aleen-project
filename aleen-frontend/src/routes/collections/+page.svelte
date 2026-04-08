@@ -1,5 +1,4 @@
 <script>
-  import { goto } from '$app/navigation';
   let { data } = $props();
 </script>
 
@@ -11,41 +10,48 @@
   />
 </svelte:head>
 
-<section class="px-6 py-16 max-w-6xl mx-auto">
-  <h1 class="text-4xl md:text-5xl font-bold text-center mb-12">
-    Our Collections
-  </h1>
-
-  {#if data.error}
-    <p class="text-center">{data.error}</p>
-  {:else if data.collections.length === 0}
-    <p class="text-center">No collections found.</p>
-  {:else}
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {#each data.collections as collection}
-  <a
-    href={`/collections/${collection.slug}`}
-    class="block border rounded-xl overflow-hidden shadow-sm hover:shadow-md transition"
-  >
-    {#if collection.coverImage}
-      <img
-        src={`http://localhost:1337${collection.coverImage.url}`}
-        alt={collection.title}
-        class="w-full h-64 object-cover"
-      />
-    {/if}
-
-    <div class="p-6">
-      <h2 class="text-2xl font-semibold mb-3">
-        {collection.title}
-      </h2>
-
-      <p class="text-sm leading-6 mb-4">
-        {collection.description?.[0]?.children?.[0]?.text ?? 'No description available.'}
+<section class="lux-section">
+  <div class="lux-container">
+    <div class="text-center mb-14">
+      <p class="lux-script text-5xl text-[var(--gold)] mb-3">Collections</p>
+      <h1 class="text-5xl md:text-6xl font-semibold mb-4">The World of Aleen Sabbagh</h1>
+      <p class="lux-muted text-lg max-w-2xl mx-auto leading-8">
+        Discover curated collections shaped by elegance, femininity, and couture-inspired refinement.
       </p>
     </div>
-  </a>
-{/each}
-    </div>
-  {/if}
+
+    {#if data.error}
+      <p class="text-center">{data.error}</p>
+    {:else if data.collections.length === 0}
+      <p class="text-center">No collections found.</p>
+    {:else}
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {#each data.collections as collection}
+          <a
+            href={`/collections/${collection.slug}`}
+            class="lux-card group"
+          >
+            {#if collection.coverImage}
+              <img
+                src={`http://localhost:1337${collection.coverImage.url}`}
+                alt={collection.title}
+                class="w-full h-80 object-cover transition duration-300 group-hover:scale-[1.02]"
+              />
+            {/if}
+
+            <div class="p-6">
+              <p class="lux-eyebrow mb-3">Luxury Collection</p>
+              <h2 class="text-3xl font-semibold mb-3">
+                {collection.title}
+              </h2>
+
+              <p class="text-sm leading-7 lux-muted">
+                {collection.description?.[0]?.children?.[0]?.text ?? 'No description available.'}
+              </p>
+            </div>
+          </a>
+        {/each}
+      </div>
+    {/if}
+  </div>
 </section>

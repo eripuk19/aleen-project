@@ -17,16 +17,41 @@
 {:else if !contact}
   <p class="p-8 text-center">Contact page not found.</p>
 {:else}
-  <section class="px-6 py-16 max-w-4xl mx-auto">
-    <h1 class="text-4xl md:text-5xl font-bold mb-8">
-      {contact.title}
-    </h1>
+  <section class="lux-section">
+    <div class="lux-container">
+      <div class="max-w-3xl mx-auto text-center mb-12">
+        <p class="lux-script text-5xl text-[var(--gold)] mb-2">Get in Touch</p>
+        <h1 class="text-5xl md:text-6xl font-semibold mb-4">
+          {contact.title}
+        </h1>
+        <p class="text-lg lux-muted leading-8">
+          For inquiries, appointments, and collection details, contact Aleen Sabbagh directly.
+        </p>
+      </div>
 
-    <div class="space-y-4 text-lg">
-      <p><strong>Email:</strong> {contact.email}</p>
-      <p><strong>Phone:</strong> {contact.phone}</p>
-      <p><strong>Instagram:</strong> {contact.instagram}</p>
-      <p><strong>Address:</strong> {contact.address}</p>
+      <div class="lux-card max-w-3xl mx-auto p-10 md:p-14">
+        <div class="grid gap-6 text-lg">
+          <div>
+            <p class="lux-eyebrow mb-2">Email</p>
+            <p>{contact.email}</p>
+          </div>
+
+          <div>
+            <p class="lux-eyebrow mb-2">Phone</p>
+            <p>{contact.phone}</p>
+          </div>
+
+          <div>
+            <p class="lux-eyebrow mb-2">Instagram</p>
+            <p>{contact.instagram}</p>
+          </div>
+
+          <div>
+            <p class="lux-eyebrow mb-2">Address</p>
+            <p>{contact.address}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 {/if}

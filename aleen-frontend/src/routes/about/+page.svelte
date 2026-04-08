@@ -19,21 +19,29 @@
 {:else if !about}
   <p class="p-8 text-center">About page not found.</p>
 {:else}
-  <section class="px-6 py-16 max-w-5xl mx-auto">
-    {#if about.image}
-      <img
-        src={`http://localhost:1337${about.image.url}`}
-        alt={about.title}
-        class="w-full rounded-xl mb-8"
-      />
-    {/if}
+  <section class="lux-section">
+    <div class="lux-container grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        {#if about.image}
+          <img
+            src={`http://localhost:1337${about.image.url}`}
+            alt={about.title}
+            class="w-full rounded-[2rem] shadow-[0_20px_50px_rgba(31,26,23,0.08)]"
+          />
+        {/if}
+      </div>
 
-    <h1 class="text-4xl md:text-5xl font-bold mb-6">
-      {about.title}
-    </h1>
+      <div>
+        <p class="lux-script text-5xl text-[var(--gold)] mb-2">Our Story</p>
+        <h1 class="text-5xl md:text-6xl font-semibold mb-4">
+          {about.title}
+        </h1>
+        <div class="lux-divider mb-6"></div>
 
-    <p class="text-lg leading-8 max-w-3xl">
-      {description}
-    </p>
+        <p class="text-lg leading-9 lux-muted">
+          {description}
+        </p>
+      </div>
+    </div>
   </section>
 {/if}

@@ -19,38 +19,48 @@
 {:else if !dress}
   <p class="p-8 text-center">Dress not found.</p>
 {:else}
-  <section class="px-6 py-16 max-w-5xl mx-auto">
-    {#if dress.images?.[0]}
-      <img
-        src={`http://localhost:1337${dress.images[0].url}`}
-        alt={dress.altText || dress.title}
-        class="w-full rounded-xl mb-8"
-      />
-    {/if}
+  <section class="lux-section">
+    <div class="lux-container grid lg:grid-cols-2 gap-12 items-start">
+      <div>
+        {#if dress.images?.[0]}
+          <img
+            src={`http://localhost:1337${dress.images[0].url}`}
+            alt={dress.altText || dress.title}
+            class="w-full rounded-[2rem] shadow-[0_20px_50px_rgba(31,26,23,0.08)]"
+          />
+        {/if}
+      </div>
 
-    <h1 class="text-4xl md:text-5xl font-bold mb-4">
-      {dress.title}
-    </h1>
+      <div class="pt-4">
+        <p class="lux-script text-5xl text-[var(--gold)] mb-2">Couture Piece</p>
 
-    <p class="text-lg text-gray-600 mb-4">
-      {dress.shortDescription}
-    </p>
+        <h1 class="text-5xl md:text-6xl font-semibold mb-4">
+          {dress.title}
+        </h1>
 
-    <p class="text-base font-medium mb-8">
-      {dress.priceLabel}
-    </p>
+        <p class="text-lg lux-muted leading-8 mb-5">
+          {dress.shortDescription}
+        </p>
 
-    <div class="text-lg leading-8 max-w-3xl mb-8">
-      {fullDescription}
+        <p class="text-sm tracking-[0.18em] uppercase text-[var(--gold)] mb-8">
+          {dress.priceLabel}
+        </p>
+
+        <div class="lux-divider mb-8"></div>
+
+        <div class="text-lg leading-9 lux-muted mb-10">
+          {fullDescription}
+        </div>
+
+        {#if dress.collection}
+          <a
+            href={`/collections/${dress.collection.slug}`}
+            class="lux-button lux-button-secondary"
+          >
+            Back to {dress.collection.title}
+          </a>
+        {/if}
+      </div>
     </div>
-
-    {#if dress.collection}
-      <a
-        href={`/collections/${dress.collection.slug}`}
-        class="underline"
-      >
-        Back to {dress.collection.title}
-      </a>
-    {/if}
   </section>
 {/if}
