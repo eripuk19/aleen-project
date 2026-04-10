@@ -1,10 +1,12 @@
+import { env } from '$env/dynamic/public';
+
 export async function load({ fetch, params }) {
   const collectionRes = await fetch(
-    `http://localhost:1337/api/collections?filters[slug][$eq]=${params.slug}&populate=*`
+    `${env.PUBLIC_STRAPI_URL}/api/collections?filters[slug][$eq]=${params.slug}&populate=*`
   );
 
   const dressesRes = await fetch(
-    `http://localhost:1337/api/dresses?filters[collection][slug][$eq]=${params.slug}&populate=*`
+    `${env.PUBLIC_STRAPI_URL}/api/dresses?filters[collection][slug][$eq]=${params.slug}&populate=*`
   );
 
   if (!collectionRes.ok || !dressesRes.ok) {

@@ -1,8 +1,10 @@
+import { env } from '$env/dynamic/public';
+
 export async function load({ fetch }) {
   const [homepageRes, collectionsRes, dressesRes] = await Promise.all([
-    fetch('http://localhost:1337/api/homepage?populate=*'),
-    fetch('http://localhost:1337/api/collections?populate=*'),
-    fetch('http://localhost:1337/api/dresses?filters[featured][$eq]=true&populate=*')
+    fetch(`${env.PUBLIC_STRAPI_URL}/api/homepage?populate=*`),
+    fetch(`${env.PUBLIC_STRAPI_URL}/api/collections?populate=*`),
+    fetch(`${env.PUBLIC_STRAPI_URL}/api/dresses?filters[featured][$eq]=true&populate=*`)
   ]);
 
   if (!homepageRes.ok || !collectionsRes.ok || !dressesRes.ok) {

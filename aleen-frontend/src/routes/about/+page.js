@@ -1,5 +1,7 @@
+import { env } from '$env/dynamic/public';
+
 export async function load({ fetch }) {
-  const res = await fetch('http://localhost:1337/api/about-page?populate=*');
+  const res = await fetch(`${env.PUBLIC_STRAPI_URL}/api/about-page?populate=*`);
 
   if (!res.ok) {
     return {
